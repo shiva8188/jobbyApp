@@ -1,0 +1,270 @@
+.jobs-main-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  padding-left: 10px;
+}
+
+@media (min-width: 768px) {
+  .jobs-main-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.profile-salary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .profile-salary-container {
+    width: 25%;
+  }
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 265px;
+  height: 230px;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-size: cover;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    width: 265px;
+    height: 230px;
+  }
+}
+
+.profile-image {
+  width: 45px;
+  height: 45px;
+}
+
+.profile-heading {
+  font-size: 17px;
+  color: #6366f1;
+  margin-bottom: 5px;
+}
+
+.profile-bio {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #7e858e;
+}
+
+hr {
+  width: 90%;
+  color: #b6c5ff;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.job-type-container {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+}
+
+.type-heading {
+  font-size: 17px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.checkbox-container {
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+}
+
+.checkbox-label {
+  font-size: 13px;
+  margin-left: 7px;
+}
+
+.salary-checkbox {
+  border-radius: 50%;
+}
+
+.jobList-container {
+  margin-top: 0px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .jobList-container {
+    width: 75%;
+  }
+}
+
+.search-container {
+  align-self: flex-start;
+  background-color: transparent;
+  display: flex;
+  border: 1px solid #ffffff;
+  border-radius: 7px;
+  padding: 5px;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.search-input {
+  color: #ffffff;
+  margin-top: 0px;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+.searchButtonDesign {
+  background-color: transparent;
+  border: none;
+}
+
+.search-icon {
+  /* background-color: black; */
+  color: #ffffff;
+}
+
+.jobList-ul-container {
+  margin-top: 10px;
+  /* padding-left: 10px; */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-item {
+  /* width: 90%; */
+  list-style-type: none;
+  background-color: #202020;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.job-image-container {
+  display: flex;
+}
+
+.companyLogo {
+  width: 50px;
+  height: 50px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0px;
+}
+
+.job-rating {
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.icon {
+  color: yellow;
+}
+
+.location-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating-type-container {
+  display: flex;
+  align-items: center;
+}
+
+.location {
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.type {
+  color: #ffffff;
+}
+
+.salary {
+  color: #ffffff;
+}
+
+.hr {
+  width: 100%;
+  margin: 0px;
+  margin-top: 8px;
+  color: #7e858e;
+  background-color: #7e858e;
+  align-items: stretch;
+}
+
+.job-description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-heading {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f8fafc;
+}
+
+.job-description-text {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-weight: normal;
+}
+
+.job-failure-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.job-failure-image {
+  width: 100%;
+}
+
+.failure-heading {
+  color: #ffffff;
+}
+
+.failure-description {
+  color: #ffffff;
+}
