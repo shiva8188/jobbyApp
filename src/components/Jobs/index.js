@@ -133,7 +133,7 @@ class Jobs extends Component {
 
   getProfileFailure = () => (
     <div>
-      <button className="logout-button" onClick={this.onRetry}>
+      <button type="button" className="logout-button" onClick={this.onRetry}>
         Retry
       </button>
     </div>
@@ -285,7 +285,11 @@ class Jobs extends Component {
       <p className="failure-description">
         We cannot seem to find the page you are looking for
       </p>
-      <button className="logout-button" onClick={this.onRetryJobs}>
+      <button
+        type="button"
+        className="logout-button"
+        onClick={this.onRetryJobs}
+      >
         Retry
       </button>
     </div>
