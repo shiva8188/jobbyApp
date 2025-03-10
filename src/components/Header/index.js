@@ -33,7 +33,7 @@ const Header = props => {
           </li>
 
           <li>
-            <button className="logout-button" onClick={onDelete}>
+            <button type="button" className="logout-button" onClick={onDelete}>
               Logout
             </button>
           </li>
