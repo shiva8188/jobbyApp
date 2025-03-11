@@ -49,6 +49,14 @@ const salaryRangesList = [
   },
 ]
 
+const locationOptions = [
+  {locationId: 'Hyderabad'},
+  {locationId: 'Bangalore'},
+  {locationId: 'Chennai'},
+  {locationId: 'Delhi'},
+  {locationId: 'Mumbai'},
+]
+
 const apiStatusConstant = {
   initial: 'INITIAL',
   inProgress: 'IN_PROGRESS',
@@ -70,9 +78,9 @@ class Jobs extends Component {
     salary: '',
     jobTypes: [],
     jobsListData: [],
+    selectedLocations: [],
     jobApiStatus: jobsApiStatusConstant.initial,
     searchInput: '',
-    name: '',
   }
 
   componentDidMount() {
@@ -102,7 +110,6 @@ class Jobs extends Component {
       }
       this.setState({
         profileDetails: updataProfiletext,
-        name: updataProfiletext.name,
         apiStatus: apiStatusConstant.success,
       })
     } else {
@@ -111,16 +118,16 @@ class Jobs extends Component {
   }
 
   getProfileSuccess = () => {
-    const {profileDetails, name} = this.state
+    const {profileDetails} = this.state
     return (
       <>
         <div className="profile-container">
           <img
             src={profileDetails.imageUrl}
-            alt={profileDetails.name}
+            alt="profile"
             className="profile-image"
           />
-          <h1 className="profile-heading">{name}</h1>
+          <h1 className="profile-heading">{profileDetails.name}</h1>
           <p className="profile-bio">{profileDetails.bio}</p>
         </div>
       </>
@@ -175,7 +182,22 @@ class Jobs extends Component {
     }
   }
 
+  onHandleLocationCheckbox = event => {
+    if (event.target.checked) {
+      this.setState(prev => ({
+        selectedLocations: [...prev.selectedLocations, event.target.value],
+      }))
+    } else {
+      this.setState(prev => ({
+        selectedLocations: prev.selectedLocations.filter(
+          each => each !== event.target.value,
+        ),
+      }))
+    }
+  }
+
   onHandleSalary = event => {
+    console.log(event.target.value)
     this.setState({salary: event.target.value}, this.getJobsList)
   }
 
@@ -218,9 +240,13 @@ class Jobs extends Component {
   }
 
   getJobItem = () => {
-    const {jobsListData} = this.state
+    const {jobsListData, selectedLocations} = this.state
+    const filtered =
+      selectedLocations.length > 0
+        ? jobsListData.filter(each => selectedLocations.includes(each.location))
+        : jobsListData
 
-    return jobsListData.map(each => (
+    return filtered.map(each => (
       <Link to={`/jobs/${each.id}`} className="link" key={each.id}>
         <li className="job-item">
           <div className="job-image-container">
@@ -325,6 +351,9 @@ class Jobs extends Component {
 
   onChangeInputValue = event => {
     this.setState({searchInput: event.target.value})
+    if (!event.target.value) {
+      this.getJobsList()
+    }
   }
 
   getSearchInput = () => {
@@ -332,7 +361,7 @@ class Jobs extends Component {
   }
 
   render() {
-    const {jobsListData, searchInput} = this.state
+    const {searchInput} = this.state
     return (
       <>
         <Header />
@@ -381,6 +410,24 @@ class Jobs extends Component {
                     >
                       {each.label}
                     </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <hr />
+            <div className="job-type-container">
+              <h1 className="type-heading">Location</h1>
+              <ul className="checkbox-container">
+                {locationOptions.map(each => (
+                  <li key={each.locationId} className="checkbox-list">
+                    <input
+                      type="checkbox"
+                      id={each.locationId}
+                      value={each.locationId}
+                      className="checkbox"
+                      onChange={this.onHandleLocationCheckbox}
+                    />
+                    <label htmlFor={each.locationId}>{each.locationId}</label>
                   </li>
                 ))}
               </ul>
